@@ -3,28 +3,10 @@
 #include "include/views/cef_browser_view_delegate.h"
 #include "include/views/cef_window.h"
 #include "include/views/cef_window_delegate.h"
-
-class SimpleBrowserViewDelegate : public CefBrowserViewDelegate
-{
-public:
-	SimpleBrowserViewDelegate()
-	{
-	}
-
-	bool OnPopupBrowserViewCreated(CefRefPtr<CefBrowserView> browser_view, CefRefPtr<CefBrowserView> popup_browser_view, bool is_devtools) OVERRIDE
-	{
-		CefWindow::CreateTopLevelWindow(new SimpleWindowDelegate(popup_browser_view));
-		return true;
-	}
-
-private:
-	IMPLEMENT_REFCOUNTING(SimpleBrowserViewDelegate);
-	DISALLOW_COPY_AND_ASSIGN(SimpleBrowserViewDelegate);
-};
+#include "include/views/cef_browser_view.h"
 
 
-class SimpleWindowDelegate : public CefWindowDelegate
-{
+class SimpleWindowDelegate : public CefWindowDelegate {
 public:
 	explicit SimpleWindowDelegate(CefRefPtr<CefBrowserView> browser_view)
 		: browser_view_(browser_view)
@@ -47,7 +29,10 @@ public:
 
 	bool CanClose(CefRefPtr<CefWindow> window) OVERRIDE
 	{
-
+		CefRefPtr<CefBrowser> browser = browser_view_->GetBrowser();
+		if (browser)
+			return browser->GetHost()->TryCloseBrowser();
+		return true;
 	}
 
 	CefSize GetPreferredSize(CefRefPtr<CefView> view) OVERRIDE
@@ -63,3 +48,21 @@ private:
 
 };
 
+
+class SimpleBrowserViewDelegate : public CefBrowserViewDelegate
+{
+public:
+	SimpleBrowserViewDelegate()
+	{
+	}
+
+	bool OnPopupBrowserViewCreated(CefRefPtr<CefBrowserView> browser_view, CefRefPtr<CefBrowserView> popup_browser_view, bool is_devtools) OVERRIDE
+	{
+		CefWindow::CreateTopLevelWindow(new SimpleWindowDelegate(popup_browser_view));
+		return true;
+	}
+
+private:
+	IMPLEMENT_REFCOUNTING(SimpleBrowserViewDelegate);
+	DISALLOW_COPY_AND_ASSIGN(SimpleBrowserViewDelegate);
+};
