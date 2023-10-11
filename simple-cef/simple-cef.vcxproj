@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\github\simple-cef\cef;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\github\simple-cef\cef\cef-win64-85.3.13+gcd6cbe0+chromium-85.0.4183.121;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -132,10 +132,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="simple-app.cpp" />
+    <ClCompile Include="simple_client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="simple-app.h" />
     <ClInclude Include="SimpleBrowserViewDelegate.hpp" />
+    <ClInclude Include="simple_client.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
