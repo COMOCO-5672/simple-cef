@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\github\simple-cef\cef\Debug;D:\github\simple-cef\cef\build\libcef_dll_wrapper\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\github\simple-cef\cef\cef-win64-85.3.13+gcd6cbe0+chromium-85.0.4183.121;cef\cef-win64-85.3.13+gcd6cbe0+chromium-85.0.4183.121\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcef.lib;cef_sandbox.lib;libcef_dll_wrapper.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
