@@ -1,6 +1,5 @@
 #include "simple-app.h"
 
-#include "simple_client.h"
 #include "simple_handler.h"
 
 #include "include/cef_browser.h"
@@ -178,4 +177,9 @@ void SimpleApp::OnContextInitialized()
         CefBrowserHost::CreateBrowser(window_info, handler, url, browser_settings,
             nullptr, nullptr);
     }
+}
+
+CefRefPtr<CefClient> SimpleApp::GetDefaultClient()
+{
+    return SimpleHandler::GetInstance();
 }

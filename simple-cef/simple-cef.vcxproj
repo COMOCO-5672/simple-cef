@@ -111,6 +111,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\cef\cef_binary_126.2.9+g169fea9+chromium-126.0.6478.127_windows64;..\cef\cef_binary_126.2.9+g169fea9+chromium-126.0.6478.127_windows64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcef.lib;cef_sandbox.lib;libcef_dll_wrapper.lib;comctl32.lib;gdi32.lib;rpcrt4.lib;shlwapi.lib;ws2_32.lib;kernel32.lib;user32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>api-ms-win-core-winrt-error-l1-1-0.dll;api-ms-win-core-winrt-l1-1-0.dll;api-ms-win-core-winrt-string-l1-1-0.dll;advapi32.dll;comctl32.dll;comdlg32.dll;credui.dll;cryptui.dll;d3d11.dll;d3d9.dll;dwmapi.dll;dxgi.dll;dxva2.dll;esent.dll;gdi32.dll;hid.dll;imagehlp.dll;imm32.dll;msi.dll;netapi32.dll;ncrypt.dll;ole32.dll;oleacc.dll;propsys.dll;psapi.dll;rpcrt4.dll;rstrtmgr.dll;setupapi.dll;shell32.dll;shlwapi.dll;uiautomationcore.dll;urlmon.dll;user32.dll;usp10.dll;uxtheme.dll;wer.dll;wevtapi.dll;wininet.dll;winusb.dll;wsock32.dll;wtsapi32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,12 +136,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="simple-app.cpp" />
-    <ClCompile Include="simple_client.cpp" />
     <ClCompile Include="simple_handler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="simple-app.h" />
-    <ClInclude Include="simple_client.h" />
     <ClInclude Include="simple_handler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
