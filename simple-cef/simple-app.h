@@ -5,16 +5,15 @@
 class SimpleApp : public CefApp, public CefBrowserProcessHandler {
 public:
     SimpleApp();
-    ~SimpleApp() OVERRIDE
-    {
-    }
 
-    virtual CefRefPtr<CefBrowserProcessHandler> GetBrowserProcessHandler() OVERRIDE
+    CefRefPtr<CefBrowserProcessHandler> GetBrowserProcessHandler() override
     {
         return this;
     }
 
-    virtual void OnContextInitialized() OVERRIDE;
+    virtual void OnContextInitialized() override;
+
+    CefRefPtr<CefClient> GetDefaultClient() override;
 
 private:
     IMPLEMENT_REFCOUNTING(SimpleApp);

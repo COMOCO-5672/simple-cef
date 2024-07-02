@@ -13,12 +13,12 @@ public:
 
     static SimpleClient *GetInstance();
 
-    virtual CefRefPtr<CefDisplayHandler> GetDisplayHandler() OVERRIDE
+    virtual CefRefPtr<CefDisplayHandler> GetDisplayHandler() override
     {
         return this;
     }
 
-    virtual CefRefPtr<CefLifeSpanHandler> GetLifeSpanHandler() OVERRIDE
+    virtual CefRefPtr<CefLifeSpanHandler> GetLifeSpanHandler() override
     {
         return this;
     }
